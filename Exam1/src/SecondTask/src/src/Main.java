@@ -49,7 +49,7 @@ public class Main {
 
         Calendar calendar = new GregorianCalendar(year, month , day);
         Date date = calendar.getTime();
-        System.out.println(date);
+//        System.out.println(date);
         CactusSchedule cactusik = new CactusSchedule(date);
 
         Date newDate = cactusik.getNextWaterDate();

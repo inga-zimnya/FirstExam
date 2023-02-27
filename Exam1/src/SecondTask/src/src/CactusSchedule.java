@@ -5,12 +5,10 @@ import java.util.Random;
 
 public class CactusSchedule {
 
-    private final Random randomGenerator;
     private Date lastWaterDate;
 
     public CactusSchedule(Date lastWaterDate) {
         this.lastWaterDate = lastWaterDate;
-        this.randomGenerator = new Random();
     }
 
 
@@ -27,7 +25,9 @@ public class CactusSchedule {
             waterFrequency = 7;
         } else {
             // Summer
-            int humidityProcentage = randomGenerator.nextInt(100);
+            Sensor per = new Sensor();
+
+            int humidityProcentage = per.getRandomGenerator();
 //            System.out.println(humidityProcentage);
             if (humidityProcentage < 30) {
                 waterFrequency = 2;
