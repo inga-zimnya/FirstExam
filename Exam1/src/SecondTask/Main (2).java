@@ -1,17 +1,15 @@
 import java.util.*;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.util.Date;
-import java.util.Random;
-public class Task2 {
+
+public class Main {
     public static void main(String[] args) {
         int year = 0, month = 0, day = 0;
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Введите год полива кактуса: ");
-        try{
+
+        try {
             year = scan.nextInt();
-        }catch(InputMismatchException e){
+        } catch(InputMismatchException e){
             throw new InputMismatchException("Неправильный формат строки! Введите число.");
         }
 
@@ -48,10 +46,14 @@ public class Task2 {
         }
         scan.close();
 
+
         Calendar calendar = new GregorianCalendar(year, month , day);
         Date date = calendar.getTime();
         System.out.println(date);
+        CactusSchedule cactusik = new CactusSchedule(date);
 
-
+        Date newDate = cactusik.getNextWaterDate();
+        System.out.println(newDate);
     }
 }
+
